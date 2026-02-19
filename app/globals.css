@@ -29,3 +29,30 @@ html {
   scroll-behavior: smooth;
 }
 
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 30s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 30s linear infinite;
+}
+
+

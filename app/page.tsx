@@ -3,7 +3,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
+import ContactSection from "./contact/page"; 
+import { title } from "process";
+import { desc } from "framer-motion/client";
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -40,18 +42,40 @@ export default function Header() {
         : "bg-white/20 border border-transparent text-[#0F172A] hover:bg-white/40 hover:border-[#E2E8F0] hover:shadow-md"
     }`;
 
-          const customers = [
-            "PIXCOM",
-            "Just Click",
-            "The Laundry Point",
-            "Pizza World",
-            "Supernova Photography",
-            "Taste of Malabar",
-            "Services",
-            "ERP Pandit",
-            "YRSK Marketing & Branding Solutions",
-            "BiCxo",
-          ];
+        const customers = [
+          { name: "PIXCOM", logo: "/pixcom.jpg" },
+          { name: "Just Click", logo: "/justclick.png" },
+          { name: "Film District", logo: "/film_district.png" },
+          { name: "The Laundry Point", logo: "/thelaundrypoint.jpg" },
+          { name: "Supernova Photography", logo: "/supernova.png" },
+          { name: "Taste of Malabar", logo: "/tasteofmalabar.png" },
+          { name: "Services", logo: "/services.png" },
+          { name: "Highway 311", logo: "/highway311.png" },
+          { name: "BiCXO", logo: "/bicxo.png" },
+          { name: "LEADGE", logo: "/Leadge.png" },
+        ];
+
+        const LogoCard = ({ item }: any) => (
+          <div
+            className="min-w-60 bg-white/60 backdrop-blur-2xl 
+                      border border-[#E2E8F0] rounded-2xl p-8
+                      flex flex-col items-center justify-center
+                      shadow-lg hover:shadow-2xl 
+                      transition-all duration-500"
+          >
+            <img
+              src={item.logo}
+              alt={item.name}
+              className="h-16 object-contain mb-6"
+            />
+
+            <p className="text-sm font-semibold text-[#0F172A] text-center">
+              {item.name}
+            </p>
+          </div>
+        );
+
+
 return (
     <main className="bg-[#FFFFFF] text-[#111827] scroll-smooth">
 
@@ -443,37 +467,39 @@ return (
       {/* DIGITAL FOOTPRINTS */}
       <section
         id="customers"
-        className="bg-[#F2F4F8] py-32 px-8"
+        className="bg-[#F2F4F8] py-32 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-8">
           <h2 className="text-4xl font-bold text-center text-[#0F172A] mb-20">
             Global Digital Footprints
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {customers.map((name, i) => (
-              <div
-                key={i}
-                className="group bg-white border border-[#E2E8F0] rounded-2xl p-8 text-center 
-                          shadow-sm hover:shadow-xl transition-all duration-500"
-              >
-                <div className="h-14 w-14 mx-auto mb-6 bg-[#1E3A8A]/10 
-                                rounded-xl flex items-center justify-center 
-                                text-[#1E3A8A] font-bold text-lg">
-                  {name.charAt(0)}
-                </div>
+          <div className="space-y-12">
 
-                <h4 className="text-base font-semibold text-[#0F172A] group-hover:text-[#1E3A8A] transition">
-                  {name}
-                </h4>
-
-                <div className="mt-6 h-1 w-10 mx-auto bg-[#1E3A8A] 
-                                group-hover:w-16 transition-all duration-300 rounded" />
+            {/* TOP ROW - Scroll Left */}
+            <div className="relative overflow-hidden group">
+              <div className="flex gap-12 animate-marquee-left group-hover:[animation-play-state:paused]">
+                {[...customers.slice(0, 5), ...customers.slice(0, 5)].map((item, i) => (
+                  <LogoCard key={i} item={item} />
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* BOTTOM ROW - Scroll Right */}
+            <div className="relative overflow-hidden group">
+              <div className="flex gap-12 animate-marquee-right group-hover:[animation-play-state:paused]">
+                {[...customers.slice(5, 10), ...customers.slice(5, 10)].map((item, i) => (
+                  <LogoCard key={i} item={item} />
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
+
+
 
 
       {/* LEADERSHIP
@@ -504,23 +530,106 @@ return (
       </section> */}
 
       {/* CONTACT */}
-      <section className="py-32 px-8 text-center border-t border-[#E5E7EB] bg-[#F5F7FA]">
-        <h2 className="text-4xl font-bold mb-8">
-          Corporate Contact
-        </h2>
-        <p className="text-[#6B7280]">
-          Business Centre, Sharjah Publishing City Free Zone, UAE
-        </p>
-        <p className="mt-6 text-lg font-semibold">
-          +971 58 268 4800
-        </p>
+      <section id="contact" className="relative py-36 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
+        <ContactSection />
       </section>
 
       {/* FOOTER */}
-      <footer className="py-10 text-center text-sm text-[#6B7280] border-t border-[#E5E7EB] bg-[#FFFFFF]">
-        © {new Date().getFullYear()} SSM Future Innovation FZE. All rights reserved.
-      </footer>
+      <footer className="relative text-white">
 
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/footer.jpg"
+            alt="Corporate Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#0F172A]/70" />
+        </div>
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-8 py-20 grid md:grid-cols-4 gap-12">
+
+          {/* Company Overview */}
+          <div>
+            <h3 className="text-xl font-bold mb-6 text-white">
+              SSM Future Innovation FZE
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed">
+              A UAE-based enterprise delivering strategic IT infrastructure,
+              digital transformation, AI automation, and branding solutions
+              for modern businesses seeking measurable growth.
+            </p>
+          </div>
+
+          {/* Contact Details */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">
+              Contact Details
+            </h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li>Sharjah Publishing City Free Zone, UAE</li>
+              <li>+971 58 268 4800</li>
+              <li>info@ssmfutureinnovation.com</li>
+            </ul>
+          </div>
+
+          {/* Important Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">
+              Important Links
+            </h4>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href="#home" className="hover:text-[#3B82F6] transition">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#who" className="hover:text-[#3B82F6] transition">
+                  Who We Are
+                </a>
+              </li>
+              <li>
+                <a href="#what" className="hover:text-[#3B82F6] transition">
+                  What We Do
+                </a>
+              </li>
+              <li>
+                <a href="#customers" className="hover:text-[#3B82F6] transition">
+                  Customer List
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-[#3B82F6] transition">
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">
+              Core Services
+            </h4>
+            <ul className="space-y-3 text-sm text-gray-300">
+              <li>IT Infrastructure & Networking</li>
+              <li>Cloud & Datacenter Solutions</li>
+              <li>AI & Automation</li>
+              <li>Digital Transformation</li>
+              <li>Branding & Marketing</li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="relative border-t border-white/20 py-6 text-center text-sm text-gray-400">
+          © {new Date().getFullYear()} SSM Future Innovation FZE. All rights reserved.
+        </div>
+
+      </footer>
     </main>
   );
 }

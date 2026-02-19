@@ -27,20 +27,34 @@ const ContactSection: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulated submission
-    setTimeout(() => {
-      setLoading(false);
-      setSuccess(true);
-      setStatus("Thank you! Your inquiry has been sent successfully.");
-      setFormData({ name: '', email: '', contact: '', subject: '', message: '' });
-    }, 1500);
+    setStatus("");
+    setSuccess(false);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xkovzeoy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        setSuccess(true);
+        setFormData({ name: "", email: "",contact:"", subject: "", message: "" });
+      }
+      setStatus(data.message);
+    } catch {
+      setStatus("Something went wrong. Please try again.");
+      setSuccess(false);
+    }
+    setLoading(false);
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 top-6 lg:grid-cols-5 gap-12 lg:gap-20 max-w-7xl mx-auto">
       
       {/* Left Side: Info */}
       <div className="lg:col-span-2 flex flex-col justify-between">
@@ -49,7 +63,7 @@ const ContactSection: React.FC = () => {
             Contact Us
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight text-[#0F172A]">
-            Get in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A8A] to-[#3B82F6]">Touch.</span>
+            Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-[#1E3A8A] to-[#3B82F6]">Touch.</span>
           </h2>
           <p className="text-[#475569] mb-10 text-lg leading-relaxed max-w-xl">
             Ready to transform your brand experience? Our team of innovative and creative individuals 
@@ -94,9 +108,9 @@ const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-[#94A3B8] font-bold text-xs tracking-[0.3em] uppercase hidden lg:block border-l-2 border-[#1E3A8A] pl-4">
+        {/* <div className="mt-12 text-[#94A3B8] font-bold text-xs tracking-[0.3em] uppercase hidden lg:block border-l-2 border-[#1E3A8A] pl-4">
           Commit & Deliver Excellence
-        </div>
+        </div> */}
       </div>
 
       {/* Right Side: Form */}
