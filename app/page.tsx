@@ -436,7 +436,7 @@ return (
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
-            {Array.from({ length: 20 }).map((_, i) => (
+            {Array.from({ length: 10 }).map((_, i) => (
               <div
                 key={i}
                 className="bg-[#FFFFFF] border border-[#E5E7EB] p-6 rounded-md"
