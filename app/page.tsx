@@ -40,6 +40,18 @@ export default function Header() {
         : "bg-white/20 border border-transparent text-[#0F172A] hover:bg-white/40 hover:border-[#E2E8F0] hover:shadow-md"
     }`;
 
+          const customers = [
+            "PIXCOM",
+            "Just Click",
+            "The Laundry Point",
+            "Pizza World",
+            "Supernova Photography",
+            "Taste of Malabar",
+            "Services",
+            "ERP Pandit",
+            "YRSK Marketing & Branding Solutions",
+            "BiCxo",
+          ];
 return (
     <main className="bg-[#FFFFFF] text-[#111827] scroll-smooth">
 
@@ -429,32 +441,42 @@ return (
 
 
       {/* DIGITAL FOOTPRINTS */}
-      <section className="bg-[#F5F7FA] py-32 px-8">
+      <section
+        id="customers"
+        className="bg-[#F2F4F8] py-32 px-8"
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-20">
+          <h2 className="text-4xl font-bold text-center text-[#0F172A] mb-20">
             Global Digital Footprints
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
-            {Array.from({ length: 10 }).map((_, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            {customers.map((name, i) => (
               <div
                 key={i}
-                className="bg-[#FFFFFF] border border-[#E5E7EB] p-6 rounded-md"
+                className="group bg-white border border-[#E2E8F0] rounded-2xl p-8 text-center 
+                          shadow-sm hover:shadow-xl transition-all duration-500"
               >
-                <div className="h-16 bg-[#F5F7FA] mb-6"></div>
-                <h4 className="text-sm font-semibold">
-                  Corporate Initiative {i + 1}
+                <div className="h-14 w-14 mx-auto mb-6 bg-[#1E3A8A]/10 
+                                rounded-xl flex items-center justify-center 
+                                text-[#1E3A8A] font-bold text-lg">
+                  {name.charAt(0)}
+                </div>
+
+                <h4 className="text-base font-semibold text-[#0F172A] group-hover:text-[#1E3A8A] transition">
+                  {name}
                 </h4>
-                <p className="text-xs text-[#6B7280] mt-3">
-                  Enterprise digital presence expansion.
-                </p>
+
+                <div className="mt-6 h-1 w-10 mx-auto bg-[#1E3A8A] 
+                                group-hover:w-16 transition-all duration-300 rounded" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* LEADERSHIP */}
+
+      {/* LEADERSHIP
       <section className="py-32 px-8 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto text-center mb-20">
           <h2 className="text-4xl font-bold">Leadership & Governance</h2>
@@ -479,7 +501,7 @@ return (
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CONTACT */}
       <section className="py-32 px-8 text-center border-t border-[#E5E7EB] bg-[#F5F7FA]">
