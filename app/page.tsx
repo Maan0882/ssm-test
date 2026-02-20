@@ -36,11 +36,11 @@ export default function Header() {
 
   // Glass Morphism Nav Buttons
   const linkClass = (id: string) =>
-    `px-4 py-2 rounded-xl text-lg font-bold transition-all duration-300 backdrop-blur-md ${
-      active === id
-        ? "bg-white/40 border border-[#1E3A8A]/40 text-[#1E3A8A] shadow-[0_8px_30px_rgba(30,58,138,0.25)]"
-        : "bg-white/20 border border-transparent text-[#0F172A] hover:bg-white/40 hover:border-[#E2E8F0] hover:shadow-md"
-    }`;
+  `px-4 py-2 rounded-xl text-lg font-bold transition-all duration-300 backdrop-blur-md ${
+    active === id
+      ? "bg-[#00E5FF]/20 border border-[#00E5FF]/40 text-[#0056D2] shadow-[0_8px_30px_rgba(0,86,210,0.25)]"
+      : "bg-white/30 border border-transparent text-[#1A2530] hover:bg-[#00E5FF]/10 hover:border-[#00E5FF]/40"
+  }`;
 
         const customers = [
           { name: "PIXCOM", logo: "/pixcom.jpg" },
@@ -69,7 +69,7 @@ export default function Header() {
               className="h-16 object-contain mb-6"
             />
 
-            <p className="text-sm font-semibold text-[#0F172A] text-center">
+            <p className="text-sm font-semibold text-[#1A2530] text-center">
               {item.name}
             </p>
           </div>
@@ -77,11 +77,11 @@ export default function Header() {
 
 
 return (
-    <main className="bg-[#FFFFFF] text-[#111827] scroll-smooth">
+    <main className="bg-[#FFFFFF] text-[#1A2530] scroll-smooth">
 
       {/* NAVBAR */}
       <header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 rounded-2xl transition-all duration-500 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-8xl z-50 rounded-2xl transition-all duration-500 ${
         scrolled
           ? "bg-white/60 backdrop-blur-2xl border border-[#E2E8F0] shadow-xl"
           : "bg-white/70 backdrop-blur-xl border border-[#E2E8F0]"
@@ -116,7 +116,7 @@ return (
             className="object-contain"
             priority
           />
-          <h1 className="text-lg font-semibold text-[#0F172A]">
+          <h1 className="text-[#1A2530] font-bold text-2xl">
             SSM Future Innovation FZE
           </h1>
         </div>
@@ -136,7 +136,7 @@ return (
           </a>
 
           <a href="#customers" onClick={() => setActive("customers")} className={linkClass("customers")}>
-            Customer List
+            Customers
           </a>
 
           <a href="#contact" onClick={() => setActive("contact")} className={linkClass("contact")}>
@@ -149,9 +149,9 @@ return (
           className="md:hidden flex flex-col gap-1"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
-          <span className="w-6 h-0.5 bg-[#0F172A]"></span>
-          <span className="w-6 h-0.5 bg-[#0F172A]"></span>
-          <span className="w-6 h-0.5 bg-[#0F172A]"></span>
+          <span className="w-6 h-0.5 bg-[#1A2530]"></span>
+          <span className="w-6 h-0.5 bg-[#1A2530]"></span>
+          <span className="w-6 h-0.5 bg-[#1A2530]"></span>
         </button>
       </div>
 
@@ -196,7 +196,7 @@ return (
                   onClick={() => { setActive("customers"); setMobileOpen(false); }}
                   className={linkClass("customers")}
                 >
-                  Customer List
+                  Customers
                 </a>
 
                 <a
@@ -214,12 +214,12 @@ return (
     </header>
 
       {/* HERO WITH CORPORATE IMAGE */}
-      <section id="home" className="relative pt-42 pb-30 px-8 bg-[#FFFFFF] overflow-hidden">
+      <section id="home" className="relative pt-35 pb-15 px-8 bg-[#FFFFFF] overflow-hidden">
 
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/bg3.png"
+            src="/home1.jpg"
             alt="Corporate Headquarters"
             fill
             priority
@@ -228,10 +228,10 @@ return (
         </div>
 
         {/* Gradient Overlay for Professional Look */}
-        <div className="absolute inset-0 bg-linear-to-r from-[#0F172A]/85 via-[#0F172A]/75 to-[#0F172A]/60" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#1A2530]/90 via-[#1A2530]/80 to-[#1A2530]/70" />
 
         {/* Soft Accent Glow */}
-        <div className="absolute top-32 right-0 w-150 h-100 bg-[#3B82F6]/20 blur-[140px] rounded-full" />
+        <div className="absolute top-32 right-0 w-150 h-100 bg-[#00E5FF]/20 blur-[140px] rounded-full" />
 
         {/* Content */}
         <div className="relative max-w-6xl mx-auto text-left text-white">
@@ -258,7 +258,7 @@ return (
           <div className="mt-14">
             <a
               href="#contact"
-              className="px-12 py-5 bg-[#1E3A8A] text-white rounded-lg text-base font-semibold tracking-wide shadow-lg hover:bg-[#3B82F6] transition-all duration-300"
+              className="px-12 py-5 bg-[#0056D2] text-white rounded-lg text-base font-semibold tracking-wide shadow-lg hover:bg-[#0047B3] transition-all duration-300"
             >
               Schedule Consultation
             </a>
@@ -269,20 +269,19 @@ return (
 
 
       {/* ABOUT + UAE IMAGE */}
-      <section id="who"
-        className="relative bg-[#F2F4F8] py-36 px-8 overflow-hidden scroll-mt-32">
+      <section id="who" className="relative bg-[#F0F4F8] py-15 px-8 overflow-hidden scroll-mt-32">
 
         {/* Subtle Accent Glow */}
-        <div className="absolute -top-20 -left-20 w-125 h-100 bg-[#1E3A8A]/5 blur-[120px] rounded-full" />
+        <div className="absolute -top-20 -left-20 w-125 h-100 bg-[#0056D2]/5 blur-[120px] rounded-full" />
 
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
 
           {/* IMAGE SIDE */}
           <div className="relative group">
-            <div className="absolute inset-0 bg-linear-to-tr from-[#1E3A8A]/10 to-transparent rounded-2xl blur-2xl -z-10" />
+            <div className="absolute inset-0 bg-linear-to-tr from-[#0056D2]/10 to-transparent rounded-2xl blur-2xl -z-10" />
 
             <Image
-              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+              src="/home.jpg"
               alt="UAE Skyline"
               width={700}
               height={500}
@@ -292,13 +291,13 @@ return (
 
           {/* CONTENT SIDE */}
           <div>
-            <span className="text-sm font-semibold tracking-widest text-[#1E3A8A] uppercase">
+            <span className="text-sm font-semibold tracking-widest text-[#0056D2] uppercase">
               About Us
             </span>
 
-            <h2 className="text-5xl font-extrabold text-[#0F172A] mt-4 leading-tight">
+            <h2 className="text-5xl font-extrabold text-[#1A2530] mt-4 leading-tight">
               Strategic Growth <br />
-              <span className="text-[#1E3A8A]">Through Innovation</span>
+              <span className="text-[#0056D2]">Through Innovation</span>
             </h2>
 
             <p className="mt-8 text-lg text-[#475569] leading-relaxed max-w-xl">
@@ -309,8 +308,8 @@ return (
             </p>
 
             {/* Highlight Box */}
-            <div className="mt-10 border-l-4 border-[#1E3A8A] pl-6">
-              <p className="text-[#0F172A] font-semibold">
+            <div className="mt-10 border-l-4 border-[#0056D2] pl-6">
+              <p className="text-[#1A2530] font-semibold">
                 Empowering forward-thinking organizations to scale with confidence and clarity.
               </p>
             </div>
@@ -319,7 +318,7 @@ return (
             <div className="mt-12">
               <a
                 href="#contact"
-                className="px-10 py-4 bg-[#1E3A8A] text-white rounded-lg text-base font-semibold shadow-md hover:bg-[#3B82F6] transition-all duration-300"
+                className="px-10 py-4 bg-[#0056D2] text-white rounded-lg text-base font-semibold shadow-md hover:bg-[#3B82F6] transition-all duration-300"
               >
                 Learn More
               </a>
@@ -330,19 +329,18 @@ return (
       </section>
 
       {/* CAPABILITIES WITH IMAGE */}
-      <section id="what"
-        className="relative py-36 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
+      <section id="what" className="relative py-15 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
 
         {/* Subtle Background Accent */}
-        <div className="absolute inset-0 bg-[#F2F4F8] -z-10" />
-        <div className="absolute top-20 right-0 w-125 h-100 bg-[#1E3A8A]/5 blur-[120px] rounded-full -z-10" />
+        <div className="absolute inset-0 bg-[#F0F4F8] -z-10" />
+        <div className="absolute top-15 right-0 w-125 h-100 bg-[#0056D2]/5 blur-[120px] rounded-full -z-10" />
 
         {/* Section Header */}
         <div className="max-w-7xl mx-auto text-center mb-24">
-          <span className="text-sm font-semibold tracking-widest text-[#1E3A8A] uppercase">
+          <span className="text-s font-semibold tracking-widest text-[#0056D2] uppercase">
             Our Expertise
           </span>
-          <h2 className="text-5xl font-extrabold text-[#0F172A] mt-4">
+          <h2 className="text-5xl font-extrabold text-[#1A2530] mt-4">
             Core Capabilities Driving Growth
           </h2>
           <p className="mt-6 text-lg text-[#475569] max-w-2xl mx-auto">
@@ -369,7 +367,7 @@ return (
                 "Datacenter Infrastructure Solutions",
                 "Software & IT Application Development",
               ],
-              img: "https://images.unsplash.com/photo-1518770660439-4636190af475",
+              img: "/it1.jpg",
             },
             {
               id: "creative",
@@ -381,7 +379,7 @@ return (
                 "Leaflet, Brochure, Business Stationery",
                 "Graphics, Animations"
               ],
-              img: "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
+              img: "/create.jpg",
             },
             {
               id: "digital",
@@ -396,7 +394,7 @@ return (
                 "Social Media Strategies",
                 "Multimedia Presentation"
               ],
-              img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+              img: "/digital.jpg",
             },
             {
               id: "social",
@@ -410,7 +408,7 @@ return (
                 "Pinterest Marketing",
                 "YouTube Marketing"
               ],
-              img: "https://images.unsplash.com/photo-1556740749-887f6717d7e4",
+              img: "/marketing.jpg",
             },
           ].map((item, i) => (
             <div
@@ -426,12 +424,12 @@ return (
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-[#0F172A]/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#1A2530]/40 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="p-8">
-                <h3 className="text-xl font-bold text-[#0F172A] group-hover:text-[#1E3A8A] transition">
+                <h3 className="text-xl font-bold text-[#1A2530] group-hover:text-[#0056D2] transition">
                   {item.title}
                 </h3>
 
@@ -447,14 +445,14 @@ return (
                         key={index}
                         className="flex items-start text-sm text-[#475569]"
                       >
-                        <span className="mt-1 mr-2 h-2 w-2 bg-[#1E3A8A] rounded-full"></span>
+                        <span className="mt-1 mr-2 h-2 w-2 bg-[#0056D2] rounded-full"></span>
                         {point}
                       </li>
                     ))}
                   </ul>
                 )}
 
-                <div className="mt-6 h-1 w-10 bg-[#1E3A8A] group-hover:w-16 transition-all duration-300 rounded" />
+                <div className="mt-6 h-1 w-10 bg-[#0056D2] group-hover:w-16 transition-all duration-300 rounded" />
               </div>
 
             </div>
@@ -465,12 +463,13 @@ return (
 
 
       {/* DIGITAL FOOTPRINTS */}
-      <section
-        id="customers"
-        className="bg-[#F2F4F8] py-32 overflow-hidden"
+      <section id="customers" className="bg-[#F0F4F8] py-15 overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-8">
-          <h2 className="text-4xl font-bold text-center text-[#0F172A] mb-20">
+        <div className="max-w-7xl mx-auto text-center mb-24">
+          <span className="text-s font-semibold tracking-widest text-[#0056D2] uppercase">
+            Our Customers
+          </span>
+          <h2 className="text-5xl font-extrabold text-[#1A2530] mt-4 text-center mb-16">
             Global Digital Footprints
           </h2>
 
@@ -497,10 +496,6 @@ return (
           </div>
         </div>
       </section>
-
-
-
-
 
       {/* LEADERSHIP
       <section className="py-32 px-8 bg-[#FFFFFF]">
@@ -530,7 +525,7 @@ return (
       </section> */}
 
       {/* CONTACT */}
-      <section id="contact" className="relative py-36 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
+      <section id="contact" className="relative py-15 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
         <ContactSection />
       </section>
 
@@ -544,7 +539,7 @@ return (
             alt="Corporate Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0F172A]/70" />
+          <div className="absolute inset-0 bg-[#1A2530]/85" />
         </div>
 
         {/* Content */}
@@ -581,27 +576,27 @@ return (
             </h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#home" className="hover:text-[#3B82F6] transition">
+                <a href="#home" className="hover:text-[#00E5FF] transition">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#who" className="hover:text-[#3B82F6] transition">
+                <a href="#who" className="hover:text-[#00E5FF] transition">
                   Who We Are
                 </a>
               </li>
               <li>
-                <a href="#what" className="hover:text-[#3B82F6] transition">
+                <a href="#what" className="hover:text-[#00E5FF] transition">
                   What We Do
                 </a>
               </li>
               <li>
-                <a href="#customers" className="hover:text-[#3B82F6] transition">
+                <a href="#customers" className="hover:text-[#00E5FF] transition">
                   Customer List
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-[#3B82F6] transition">
+                <a href="#contact" className="hover:text-[#00E5FF] transition">
                   Contact Us
                 </a>
               </li>
