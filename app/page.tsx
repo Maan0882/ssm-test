@@ -57,9 +57,9 @@ export default function Header() {
           { name: "VISHWASWAROOP", logo: "/Vishwaswaroop.png" },
           { name: "AMBIENCE", logo: "/ambience.png" },
           { name: "TSS", logo: "/tss.png" },
-          { name: "SNOW WHITE", logo: "/thelaundrypoint.jpg" },
+          { name: "SNOW WHITE", logo: "/snowwhite.png" },
           { name: "MARIA MARIA", logo: "/mariamaria.png" },
-          { name: "ERP PANDIT", logo: "/tasteofmalabar.png" },
+          { name: "ERP PANDIT", logo: "/erp pandit.png" },
           { name: "KUUIZZ", logo: "/kuulzz.png" },
           { name: "LAUKYA", logo: "/laukya.png" },
           { name: "OBL PRINTSTORE", logo: "/obl.png" },
@@ -128,10 +128,10 @@ return (
         {/* Logo */}
         <div className="flex items-center gap-4">
           <Image
-            src="/ssmlogo1.png"
+            src="/logo-02.png"
             alt="SSM Logo"
-            width={80}
-            height={60}
+            width={100}
+            height={80}
             className="object-contain"
             priority
           />
