@@ -53,27 +53,46 @@ export default function Header() {
           { name: "Highway 311", logo: "/highway311.png" },
           { name: "BiCXO", logo: "/bicxo.png" },
           { name: "LEADGE", logo: "/Leadge.png" },
+          // 10 more for scrolling effect
+          { name: "VISHWASWAROOP", logo: "/Vishwaswaroop.png" },
+          { name: "AMBIENCE", logo: "/ambience.png" },
+          { name: "TSS", logo: "/tss.png" },
+          { name: "SNOW WHITE", logo: "/thelaundrypoint.jpg" },
+          { name: "MARIA MARIA", logo: "/mariamaria.png" },
+          { name: "ERP PANDIT", logo: "/tasteofmalabar.png" },
+          { name: "KUUIZZ", logo: "/kuulzz.png" },
+          { name: "LAUKYA", logo: "/laukya.png" },
+          { name: "OBL PRINTSTORE", logo: "/obl.png" },
+          { name: "YRSK", logo: "/yrsk.png" },
+          { name: "eresource", logo: "/eresource.png" },
+          { name: "Print Mart", logo: "/printmart.png" }, 
+          { name: "DEXA", logo: "/dexa.png" },
         ];
-
+        const topCustomers = customers.slice(0, 10);
+        const bottomCustomers = customers.slice(10);
         const LogoCard = ({ item }: any) => (
-          <div
-            className="min-w-60 bg-white/60 backdrop-blur-2xl 
-                      border border-[#E2E8F0] rounded-2xl p-8
-                      flex flex-col items-center justify-center
-                      shadow-lg hover:shadow-2xl 
-                      transition-all duration-500"
-          >
-            <img
-              src={item.logo}
-              alt={item.name}
-              className="h-16 object-contain mb-6"
-            />
+            <div
+              className="
+                min-w-45 sm:min-w-55 md:min-w-60
+                bg-white backdrop-blur-xl
+                border border-[#E2E8F0]
+                rounded-2xl p-6 sm:p-8
+                flex flex-col items-center justify-center
+                shadow-md hover:shadow-xl
+                transition-all duration-500
+              "
+            >
+              <img
+                src={item.logo}
+                alt={item.name}
+                className="h-12 sm:h-14 md:h-16 object-contain mb-4 sm:mb-6"
+              />
 
-            <p className="text-sm font-semibold text-[#1A2530] text-center">
-              {item.name}
-            </p>
-          </div>
-        );
+              <p className="text-xs sm:text-sm font-semibold text-[#1A2530] text-center">
+                {item.name}
+              </p>
+            </div>
+          );
 
 
 return (
@@ -463,7 +482,7 @@ return (
 
 
       {/* DIGITAL FOOTPRINTS */}
-      <section id="customers" className="bg-[#F0F4F8] py-15 overflow-hidden"
+      <section id="customers" className="bg-[#F0F4F8] py-15 md:py-15 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto text-center mb-24">
           <span className="text-s font-semibold tracking-widest text-[#0056D2] uppercase">
@@ -473,21 +492,21 @@ return (
             Global Digital Footprints
           </h2>
 
-          <div className="space-y-12">
+          <div className="space-y-10 md:space-y-14">
 
-            {/* TOP ROW - Scroll Left */}
-            <div className="relative overflow-hidden group">
-              <div className="flex gap-12 animate-marquee-left group-hover:[animation-play-state:paused]">
-                {[...customers.slice(0, 5), ...customers.slice(0, 5)].map((item, i) => (
+            {/* TOP ROW */}
+            <div className="relative overflow-hidden">
+              <div className="flex w-max gap-6 md:gap-12 animate-marquee-left">
+                {[...topCustomers, ...topCustomers].map((item, i) => (
                   <LogoCard key={i} item={item} />
                 ))}
               </div>
             </div>
 
-            {/* BOTTOM ROW - Scroll Right */}
-            <div className="relative overflow-hidden group">
-              <div className="flex gap-12 animate-marquee-right group-hover:[animation-play-state:paused]">
-                {[...customers.slice(5, 10), ...customers.slice(5, 10)].map((item, i) => (
+            {/* BOTTOM ROW */}
+            <div className="relative overflow-hidden">
+              <div className="flex w-max gap-6 md:gap-12 animate-marquee-right">
+                {[...bottomCustomers, ...bottomCustomers].map((item, i) => (
                   <LogoCard key={i} item={item} />
                 ))}
               </div>
@@ -525,7 +544,7 @@ return (
       </section> */}
 
       {/* CONTACT */}
-      <section id="contact" className="relative py-15 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
+      <section id="contact" className="relative pt-5 py-5 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
         <ContactSection />
       </section>
 

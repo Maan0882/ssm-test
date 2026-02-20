@@ -54,12 +54,12 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-6xl mx-auto">
 
     <div className="grid lg:grid-cols-12 gap-16 items-start">
 
       {/* LEFT EXECUTIVE PANEL */}
-      <div className="lg:col-span-5 bg-[#1A2530] text-white rounded-3xl p-10 md:p-14 relative overflow-hidden">
+      <div className="lg:col-span-5 bg-[#1A2530] text-white rounded-3xl p-10 md:p-12 relative overflow-hidden">
 
         {/* Subtle Tech Glow */}
         <div className="absolute -top-20 -right-20 w-72 h-72 bg-[#00E5FF]/20 blur-[120px] rounded-full"></div>
@@ -70,7 +70,7 @@ const ContactSection: React.FC = () => {
             Corporate Contact
           </span>
 
-          <h2 className="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">
+          <h2 className="text-4xl md:text-4xl font-extrabold mt-6 leading-tight">
             Let’s Start a
             <span className="text-[#00E5FF]"> Strategic Discussion</span>
           </h2>
