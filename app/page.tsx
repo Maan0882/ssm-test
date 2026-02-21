@@ -59,7 +59,7 @@ export default function Header() {
           { name: "TSS", logo: "/tss.png" },
           { name: "SNOW WHITE", logo: "/snowwhite.png" },
           { name: "MARIA MARIA", logo: "/mariamaria.png" },
-          { name: "ERP PANDIT", logo: "/erp pandit.png" },
+          { name: "ERP PANDIT", logo: "/erp-pandit.png" },
           { name: "KUUIZZ", logo: "/kuulzz.png" },
           { name: "LAUKYA", logo: "/laukya.png" },
           { name: "OBL PRINTSTORE", logo: "/obl.png" },
@@ -123,21 +123,18 @@ return (
         }}
       />
 
-      <div className="px-10 py-3 flex justify-between items-center">
+      <div className="px-8 py-1 flex justify-between items-center">
 
         {/* Logo */}
         <div className="flex items-center gap-4">
           <Image
-            src="/logo-02.png"
+            src="/logo2.png"
             alt="SSM Logo"
-            width={100}
+            width={120}
             height={80}
             className="object-contain"
             priority
           />
-          <h1 className="text-[#1A2530] font-bold text-2xl">
-            SSM Future Innovation FZE
-          </h1>
         </div>
 
         {/* Desktop Navigation */}
@@ -147,15 +144,7 @@ return (
           </a>
 
           <a href="#who" onClick={() => setActive("who")} className={linkClass("who")}>
-            Who We Are
-          </a>
-
-          <a href="#what" onClick={() => setActive("what")} className={linkClass("what")}>
-            What We Do
-          </a>
-
-          <a href="#customers" onClick={() => setActive("customers")} className={linkClass("customers")}>
-            Customers
+            About Us
           </a>
 
           <a href="#contact" onClick={() => setActive("contact")} className={linkClass("contact")}>
@@ -199,23 +188,7 @@ return (
                   onClick={() => { setActive("who"); setMobileOpen(false); }}
                   className={linkClass("who")}
                 >
-                  Who We Are
-                </a>
-
-                <a
-                  href="#what"
-                  onClick={() => { setActive("what"); setMobileOpen(false); }}
-                  className={linkClass("what")}
-                >
-                  What We Do
-                </a>
-
-                <a
-                  href="#customers"
-                  onClick={() => { setActive("customers"); setMobileOpen(false); }}
-                  className={linkClass("customers")}
-                >
-                  Customers
+                  About Us
                 </a>
 
                 <a
@@ -259,7 +232,7 @@ return (
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight"
+            className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
           >
             Enterprise Innovation <br />
             <span className="text-[#3B82F6]">
@@ -277,7 +250,16 @@ return (
           <div className="mt-14">
             <a
               href="#contact"
-              className="px-12 py-5 bg-[#0056D2] text-white rounded-lg text-base font-semibold tracking-wide shadow-lg hover:bg-[#0047B3] transition-all duration-300"
+              className="
+                px-6 sm:px-10 md:px-12
+                py-3 sm:py-4 md:py-5
+                text-sm sm:text-base
+                bg-[#0056D2] text-white
+                rounded-lg font-semibold
+                shadow-lg hover:bg-[#0047B3]
+                transition-all duration-300
+                inline-block
+              "
             >
               Schedule Consultation
             </a>
@@ -314,7 +296,7 @@ return (
               About Us
             </span>
 
-            <h2 className="text-5xl font-extrabold text-[#1A2530] mt-4 leading-tight">
+            <h2 className="text-4xl font-extrabold text-[#1A2530] mt-4 leading-tight">
               Strategic Growth <br />
               <span className="text-[#0056D2]">Through Innovation</span>
             </h2>
@@ -359,10 +341,10 @@ return (
           <span className="text-s font-semibold tracking-widest text-[#0056D2] uppercase">
             Our Expertise
           </span>
-          <h2 className="text-5xl font-extrabold text-[#1A2530] mt-4">
+          <h2 className="text-4xl font-extrabold text-[#1A2530] mt-4">
             Core Capabilities Driving Growth
           </h2>
-          <p className="mt-6 text-lg text-[#475569] max-w-2xl mx-auto">
+          <p className="mt-6 text-lg text-[#475569] max-w-4xl mx-auto">
             Delivering strategic, creative, and technology-led solutions
             that empower enterprises to innovate, scale, and lead markets.
           </p>
@@ -516,33 +498,6 @@ return (
         </div>
       </section>
 
-      {/* LEADERSHIP
-      <section className="py-32 px-8 bg-[#FFFFFF]">
-        <div className="max-w-7xl mx-auto text-center mb-20">
-          <h2 className="text-4xl font-bold">Leadership & Governance</h2>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16 text-center">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i}>
-              <Image
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296"
-                alt="Executive"
-                width={300}
-                height={300}
-                className="rounded-md mx-auto mb-6"
-              />
-              <h4 className="font-semibold">
-                Executive Leadership
-              </h4>
-              <p className="text-sm text-[#6B7280] mt-3">
-                Dedicated oversight ensuring long-term enterprise growth.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
       {/* CONTACT */}
       <section id="contact" className="relative pt-5 py-5 px-8 bg-[#FFFFFF] overflow-hidden scroll-mt-32">
         <ContactSection />
@@ -562,7 +517,7 @@ return (
         </div>
 
         {/* Content */}
-        <div className="relative max-w-7xl mx-auto px-8 py-20 grid md:grid-cols-4 gap-12">
+        <div className="relative max-w-7xl mx-auto px-8 py-10 grid md:grid-cols-4 gap-12">
 
           {/* Company Overview */}
           <div>
@@ -601,19 +556,10 @@ return (
               </li>
               <li>
                 <a href="#who" className="hover:text-[#00E5FF] transition">
-                  Who We Are
+                  About Us
                 </a>
               </li>
-              <li>
-                <a href="#what" className="hover:text-[#00E5FF] transition">
-                  What We Do
-                </a>
-              </li>
-              <li>
-                <a href="#customers" className="hover:text-[#00E5FF] transition">
-                  Customer List
-                </a>
-              </li>
+            
               <li>
                 <a href="#contact" className="hover:text-[#00E5FF] transition">
                   Contact Us
@@ -639,8 +585,17 @@ return (
         </div>
 
         {/* Bottom Bar */}
-        <div className="relative border-t border-white/20 py-6 text-center text-sm text-gray-400">
-          © {new Date().getFullYear()} SSM Future Innovation FZE. All rights reserved.
+        <div className="relative border-t border-white/20 py-6 text-center text-sm text-gray-300">
+          © {new Date().getFullYear()} SSM Future Innovation FZE | Developed with <span className="text-[#28A745]">🫶</span> by{" "}
+        <a 
+          href="https://www.techstrota.com" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="hover:text-[#28A745] transition-colors"
+        >
+          Techstrota
+        </a>{" "}
+        | All Rights Reserved
         </div>
 
       </footer>
